@@ -52,7 +52,7 @@ public class MongoDAO {
 	}
 	
 	public static void InsertSubscriber(JSONObject obj) throws JSONException{
-		if (client == null)
+		if (db == null)
 			init();
 //		DB db = client.getDB("RegServer1");
 		try{
@@ -68,7 +68,7 @@ public class MongoDAO {
 	}
 	
 	public static boolean FindModel(String manufacturer,String model){
-		if (client == null)
+		if (db == null)
 			init();
 //		DB db=client.getDB("RegServer1");
 		DBCollection clnt = db.getCollection("inventory");
@@ -81,7 +81,7 @@ public class MongoDAO {
 	}
 	
 	public static boolean FindSubscriber(JSONObject device) throws JSONException{
-		if (client == null)
+		if (db == null)
 			init();
 //		DB db=client.getDB("RegServer1");
 		String collection=(String) device.get("Manufacturer");
@@ -103,7 +103,7 @@ public class MongoDAO {
 	}
 	
 	public static String UpdateSubscriber(JSONObject device) throws JSONException{
-		if (client == null)
+		if (db == null)
 			init();
 //		DB db=client.getDB("RegServer1");
 		String collection=(String) device.get("Manufacturer");
@@ -128,7 +128,7 @@ public class MongoDAO {
 	}
 	
 	public static String DeregisterSubscriber(JSONObject device) throws JSONException{
-		if (client == null)
+		if (db == null)
 			init();
 //		DB db=client.getDB("RegServer1");
 		String collection=(String) device.get("Manufacturer");
